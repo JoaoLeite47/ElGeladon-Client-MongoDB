@@ -103,15 +103,6 @@ html {
   }
 }
 
-@media (max-width: 840px) {
-  /*quando a largura máxima for 840px o justify contenct vai ser unset (responsividade)*/
-  .PaletaLista {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-    /*grid*/
-  }
-}
-
 .PaletaCardItem,
 .PaletaListaItem {
   /*card de paleta*/
@@ -331,16 +322,14 @@ html {
   .Header {
     max-width: 250px;
   }
-  .row {
-    -webkit-column-gap: 20px;
-            column-gap: 20px;
-  }
   .Logo__titulo {
+    /*título do logo*/
     font-size: 1.5em;
   }
 }
 
 .modal-overlay {
+  /*overlay do modal*/
   background-color: #00000050;
   width: 100vw;
   height: 100vh;
@@ -359,6 +348,7 @@ html {
 }
 
 .modal {
+  /*modal*/
   margin: 1rem;
   width: 100%;
   max-width: 600px;
@@ -377,6 +367,7 @@ html {
 }
 
 .modal-header {
+  /*header do modal*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -391,6 +382,7 @@ html {
 }
 
 .close-modal {
+  /*botão fechar do modal*/
   text-decoration: none;
   color: #000000;
   font-size: 1.6rem;
@@ -402,15 +394,18 @@ html {
 }
 
 .close-modal:hover {
+  /*hover do botão fechar do modal*/
   -webkit-transform: scale(1);
           transform: scale(1);
 }
 
 .modal-body {
+  /*corpo do modal*/
   padding: 0.5rem 1rem;
 }
 
 .modal-body div {
+  /*div do corpo do modal*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -428,6 +423,7 @@ html {
 
 .modal-body div input,
 textarea {
+  /*input e textarea do corpo do modal*/
   width: 100%;
   padding: 0.5rem;
   font-size: 0.8rem;
@@ -438,6 +434,7 @@ textarea {
 }
 
 .modal-body div button {
+  /*botão do corpo do modal*/
   padding: 0.5rem;
   width: 30%;
   font-size: 1rem;
@@ -451,11 +448,13 @@ textarea {
 }
 
 .modal-body div button:hover {
+  /*hover do botão do corpo do modal*/
   background-color: #0097ce;
   color: #fff;
 }
 
 .button-modal-create {
+  /*botão do corpo do modal*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -465,6 +464,7 @@ textarea {
 }
 
 .acoes {
+  /*acoes*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -475,6 +475,7 @@ textarea {
 }
 
 .btn {
+  /*botão*/
   border: none;
   border-radius: 0.3rem;
   padding: 0.5rem;
@@ -489,28 +490,33 @@ textarea {
 }
 
 .acoes-editar {
+  /*acoes editar*/
   color: #02a6e7;
   border: solid 1.2px #02a6e7;
   background-color: transparent;
 }
 
 .acoes-editar:hover {
+  /*hover do botão editar*/
   background-color: #02a6e7;
   color: #fff;
 }
 
 .acoes-apagar {
+  /*acoes apagar*/
   color: #e70202;
   border: solid 1.2px #e70202;
   background-color: transparent;
 }
 
 .acoes-apagar:hover {
+  /*hover do botão apagar*/
   background-color: #e70202;
   color: #fff;
 }
 
 .list-all {
+  /*lista de todos os produtos*/
   display: none;
   text-align: center;
   text-decoration: none;

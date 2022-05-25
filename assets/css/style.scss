@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600;700&family=Anek+Tamil:wght@100;200;300;400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-* { /*padrão do style*/
+* {
+  /*padrão do style*/
   font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
 }
 
 body,
-html { 
+html {
   /*corpo e html */
   width: 100%; /*largura */
-  min-height: 100vh;  /*altura minima */
-  overflow: auto;  /*overflow */
+  min-height: 100vh; /*altura minima */
+  overflow: auto; /*overflow */
   background-color: #ffffff; /*cor de fundo */
 }
 .Home {
@@ -30,7 +31,7 @@ html {
   box-shadow: 0px 0px 15px #0000004d; /*sombra */
 }
 
-.Home > h2 { 
+.Home > h2 {
   /*título do home*/
   display: flex; /*flex */
   justify-content: center; /*centraliza o texto */
@@ -48,7 +49,7 @@ html {
 @media (max-width: 350px) {
   /*quando a largura máxima for 350px o justify contenct vai ser unset (responsividade)*/
   .Home__container {
-    justify-content: unset; 
+    justify-content: unset;
   }
 }
 
@@ -172,22 +173,22 @@ html {
 }
 
 .search-button {
-    /*botão de pesquisa da paleta*/
-    background-color: transparent;
-    border: 2px solid #9400d3;
-    padding: 0.5rem;
-    color: #9400d3;
-    font-weight: 600;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 0.5rem;
-    transition: all 0.4s ease-in-out;
+  /*botão de pesquisa da paleta*/
+  background-color: transparent;
+  border: 2px solid #9400d3;
+  padding: 0.5rem;
+  color: #9400d3;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.4s ease-in-out;
 }
 
 .search-button:hover {
-    /*hover do botão de pesquisa da paleta*/
-    background-color: #9400d3;
-    color: #ffffff;
+  /*hover do botão de pesquisa da paleta*/
+  background-color: #9400d3;
+  color: #ffffff;
 }
 
 #paleta-escolhida-input-espaco {
@@ -238,7 +239,6 @@ html {
   top: -15px;
 }
 
-
 @media (max-width: 1220px) {
   /*quando a largura máxima for 1220px o header vai diminuir a width (responsividade)*/
   .Header {
@@ -259,16 +259,18 @@ html {
     max-width: 250px;
   }
 
-  .row {
-    column-gap: 20px;
-  }
+  // .row {  /*sacola*/
+  //   column-gap: 20px;
+  // }
 
   .Logo__titulo {
+    /*título do logo*/
     font-size: 1.5em;
   }
 }
 
 .modal-overlay {
+  /*overlay do modal*/
   background-color: #00000050;
   width: 100vw;
   height: 100vh;
@@ -283,6 +285,7 @@ html {
 }
 
 .modal {
+  /*modal*/
   margin: 1rem;
   width: 100%;
   max-width: 600px;
@@ -296,6 +299,7 @@ html {
 }
 
 .modal-header {
+  /*header do modal*/
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -308,6 +312,7 @@ html {
 }
 
 .close-modal {
+  /*botão fechar do modal*/
   text-decoration: none;
   color: #000000;
   font-size: 1.6rem;
@@ -317,14 +322,17 @@ html {
 }
 
 .close-modal:hover {
+  /*hover do botão fechar do modal*/
   transform: scale(1);
 }
 
 .modal-body {
+  /*corpo do modal*/
   padding: 0.5rem 1rem;
 }
 
 .modal-body div {
+  /*div do corpo do modal*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -333,6 +341,7 @@ html {
 
 .modal-body div input,
 textarea {
+  /*input e textarea do corpo do modal*/
   width: 100%;
   padding: 0.5rem;
   font-size: 0.8rem;
@@ -343,6 +352,7 @@ textarea {
 }
 
 .modal-body div button {
+  /*botão do corpo do modal*/
   padding: 0.5rem;
   width: 30%;
   font-size: 1rem;
@@ -355,16 +365,19 @@ textarea {
 }
 
 .modal-body div button:hover {
+  /*hover do botão do corpo do modal*/
   background-color: #0097ce;
   color: #fff;
 }
 
 .button-modal-create {
+  /*botão do corpo do modal*/
   display: flex;
   justify-content: flex-end;
 }
 
 .acoes {
+  /*acoes*/
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -372,6 +385,7 @@ textarea {
 }
 
 .btn {
+  /*botão*/
   border: none;
   border-radius: 0.3rem;
   padding: 0.5rem;
@@ -385,28 +399,33 @@ textarea {
 }
 
 .acoes-editar {
+  /*acoes editar*/
   color: #02a6e7;
   border: solid 1.2px #02a6e7;
   background-color: transparent;
 }
 
 .acoes-editar:hover {
+  /*hover do botão editar*/
   background-color: #02a6e7;
   color: #fff;
 }
 
 .acoes-apagar {
+  /*acoes apagar*/
   color: #e70202;
   border: solid 1.2px #e70202;
   background-color: transparent;
 }
 
 .acoes-apagar:hover {
+  /*hover do botão apagar*/
   background-color: #e70202;
   color: #fff;
 }
 
 .list-all {
+  /*lista de todos os produtos*/
   display: none;
   text-align: center;
   text-decoration: none;

@@ -56,7 +56,7 @@ async function findByIdPaletas() {
     });
     return; //retorna nada para não continuar a execução
   }
-  document.querySelector(".list-all").style.display = "block"; //mostra a lista de paletas
+  document.querySelector('.list-all').style.display = 'block';
   document.querySelector('.PaletaLista').style.display = 'none'; //esconde a lista de paletas
   const paletaEscolhidaDiv = document.querySelector('#paletaEscolhida'); //pega o elemento e intera como html
   paletaEscolhidaDiv.innerHTML = ` 
@@ -139,8 +139,8 @@ async function submitPaleta(event) {
   });
 
   const novaPaleta = await response.json(); //retorna um json
-  cadastrado_sucesso();
-  document.location.reload(true); //atualiza a página
+  cadastrado_sucesso(); //chama a função de cadastro sucesso
+  atualizar_pagina(); //atualiza a página
 
   // if (modoEdicaoAtivado) {
   //   document.querySelector(`#PaletaListaItem_${id}`).outerHTML = html; //altera o html do elemento pelo html da nova paleta
@@ -162,8 +162,6 @@ async function deletePaleta(id) {
   });
 
   const result = await response.json(); //retorna um json
-
-  document.location.reload(true); //atualiza a página
 }
 
 function modal_deletar(id) {
@@ -180,7 +178,14 @@ function modal_deletar(id) {
     //se o usuário clicar em sim
     if (result.isConfirmed) {
       deletePaleta(id);
-      Swal.fire('Deletada!', 'Paleta Deletada!', 'success');
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Paleta Deletada!',
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      atualizar_pagina(); //atualiza a página
     }
   });
 }
@@ -194,4 +199,11 @@ function cadastrado_sucesso() {
     showConfirmButton: false,
     timer: 3000,
   });
+}
+
+function atualizar_pagina() {
+  //atualiza a página
+  setTimeout(() => {
+    document.location.reload(true);
+  }, 1000); //atualiza a página em 1 segundo
 }
