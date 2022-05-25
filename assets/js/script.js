@@ -1,6 +1,6 @@
 const baseURL = 'http://localhost:3000/paletas'; //url base rodando em servidor local
 
-async function findAllPaletas() {
+async function find_All_Paletas() {
   //no front end não é aconselhavel usar arrow
   const response = await fetch(`${baseURL}/all-paletas`); //fetch é uma função nativa do js
 
@@ -11,30 +11,30 @@ async function findAllPaletas() {
     document.querySelector('#paletaList').insertAdjacentHTML(
       'beforeend',
       `
-    <div class="PaletaListaItem" id="PaletaListaItem_${paleta._id}">
+    <div class="Paleta_Lista_Item" id="Paleta_Lista_Item_${paleta._id}">
         <div>
-            <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
-            <div class="PaletaListaItem__preco">R$: ${paleta.preco}</div>
-            <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
+            <div class="Paleta_Lista_Item__sabor">${paleta.sabor}</div>
+            <div class="Paleta_Lista_Item__preco">R$: ${paleta.preco}</div>
+            <div class="Paleta_Lista_Item__descricao">${paleta.descricao}</div>
 
             
-             <div class="PaletaListaItem_acoes acoes">
-                <button class="acoes-editar btn" onclick="abrirModal('${paleta._id}')">Editar</button>
-                <button class="acoes-apagar btn" onclick="modal_deletar('${paleta._id}')">Apagar</button>
+             <div class="Paleta_Lista_Item_acoes acoes">
+                <button class="Acoes_editar btn" onclick="show_Modal('${paleta._id}')">Editar</button>
+                <button class="Acoes_apagar btn" onclick="modal_delete('${paleta._id}')">Apagar</button>
               </div>
 
         </div>
 
-          <img class="PaletaListaItem__foto" src="${paleta.foto}" alt="${paleta.sabor}" />
+          <img class="Paleta_Lista_Item__foto" src="${paleta.foto}" alt="${paleta.sabor}" />
 
     </div>
         `,
     );
   });
 }
-findAllPaletas(); //chama a função findAllPaletas() quando a página for carregada
+find_All_Paletas(); //chama a função find_All_Paletas() quando a página for carregada
 
-async function findByIdPaletas() {
+async function find_By_Id_Paletas() {
   //busca por id
   const id = document.querySelector('#idPaleta').value; //pega o valor do input
   if (id == '') {
@@ -56,34 +56,34 @@ async function findByIdPaletas() {
     });
     return; //retorna nada para não continuar a execução
   }
-  document.querySelector('.list-all').style.display = 'block';
-  document.querySelector('.PaletaLista').style.display = 'none'; //esconde a lista de paletas
-  const paletaEscolhidaDiv = document.querySelector('#paletaEscolhida'); //pega o elemento e intera como html
+  document.querySelector('.List_all').style.display = 'block';
+  document.querySelector('.Paleta_Lista').style.display = 'none'; //esconde a lista de paletas
+  const paletaEscolhidaDiv = document.querySelector('#Chosed_Paleta'); //pega o elemento e intera como html
   paletaEscolhidaDiv.innerHTML = ` 
-    <div class="PaletaCardItem" id="PaletaListaItem_${paleta.id}">
+    <div class="Paleta_Card_Item" id="Paleta_Lista_Item_${paleta.id}">
     <div>
-        <div class="PaletaCardItem__sabor">${paleta.sabor}</div>
-        <div class="PaletaCardItem__preco">R$: ${paleta.preco}</div>
-        <div class="PaletaCardItem__descricao">${paleta.descricao}</div>
+        <div class="Paleta_Card_Item__sabor">${paleta.sabor}</div>
+        <div class="Paleta_Card_Item__preco">R$: ${paleta.preco}</div>
+        <div class="Paleta_Card_Item__descricao">${paleta.descricao}</div>
 
-        <div class="PaletaListaItem_acoes acoes">
-        <button class="acoes-editar btn" onclick="abrirModal('${paleta._id}')" >Editar</button>
-        <button class="acoes-apagar btn" onclick="modal_deletar('${paleta._id}')" >Apagar</button>
+        <div class="Paleta_Lista_Item_acoes acoes">
+        <button class="Acoes_editar btn" onclick="show_Modal('${paleta._id}')" >Editar</button>
+        <button class="Acoes_apagar btn" onclick="modal_delete('${paleta._id}')" >Apagar</button>
       </div>
 
     </div>
-      <img class="PaletaCardItem__foto" src="${paleta.foto}" alt="${paleta.sabor}" />
+      <img class="Paleta_Card_Item__foto" src="${paleta.foto}" alt="${paleta.sabor}" />
 </div>
-`;
+`; //intera como html
 }
 
-async function abrirModal(id = '') {
+async function show_Modal(id = '') {
   //abrir modal
   if (id != '') {
     //se o id for diferente de null
-    document.querySelector('#title-header-modal').innerText =
+    document.querySelector('#Title_header_modal').innerText =
       'Atualizar Paleta'; //altera o titulo do modal
-    document.querySelector('#button-form-modal').innerText = 'Atualizar'; //altera o botão do modal
+    document.querySelector('#Button_form_modal').innerText = 'Atualizar'; //altera o botão do modal
     const response = await fetch(`${baseURL}/paleta/${id}`); //fetch é uma função nativa do js com base na roda get by id no backend
     const paleta = await response.json(); //retorna um json
     document.querySelector('#sabor').value = paleta.sabor; //altera o valor do input para o valor do sabor da paleta
@@ -92,25 +92,25 @@ async function abrirModal(id = '') {
     document.querySelector('#foto').value = paleta.foto; //altera o valor do input para o valor do foto da paleta
     document.querySelector('#id').value = paleta._id;
   } else {
-    document.querySelector('#title-header-modal').innerText =
+    document.querySelector('#Title_header_modal').innerText =
       'Cadastrar Paleta'; //altera o titulo do modal de volta
-    document.querySelector('#button-form-modal').innerText = 'Cadastrar'; //altera o botão do modal de volta
+    document.querySelector('#Button_form_modal').innerText = 'Cadastrar'; //altera o botão do modal de volta
   }
 
-  document.querySelector('.modal-overlay').style.display = 'flex'; //mostra o modal
+  document.querySelector('.Modal_overlay').style.display = 'flex'; //mostra o modal
 }
 
-function fecharModal() {
+function close_Modal() {
   //fechar modal
-  document.querySelector('.modal-overlay').style.display = 'none'; //esconde o modal
-  document.querySelector('#sabor').value = '';
-  document.querySelector('#preco').value = 0;
-  document.querySelector('#descricao').value = '';
-  document.querySelector('#foto').value = '';
-  document.querySelector('#id').value = '';
+  document.querySelector('.Modal_overlay').style.display = 'none'; //esconde o modal
+  document.querySelector('#sabor').value = ''; //altera o valor do input para vazio
+  document.querySelector('#preco').value = 0; //altera o valor do input para 0
+  document.querySelector('#descricao').value = ''; //altera o valor do input para vazio
+  document.querySelector('#foto').value = ''; //altera o valor do input para vazio
+  document.querySelector('#id').value = ''; //altera o valor do input para vazio
 }
 
-async function submitPaleta(event) {
+async function submit_Paleta(event) {
   //criar paleta
   const id = document.querySelector('#id').value;
   const sabor = document.querySelector('#sabor').value;
@@ -139,18 +139,12 @@ async function submitPaleta(event) {
   });
 
   const novaPaleta = await response.json(); //retorna um json
-  cadastrado_sucesso(); //chama a função de cadastro sucesso
-  atualizar_pagina(); //atualiza a página
-
-  // if (modoEdicaoAtivado) {
-  //   document.querySelector(`#PaletaListaItem_${id}`).outerHTML = html; //altera o html do elemento pelo html da nova paleta
-  // } else {
-  //   document.querySelector('#paletaList').insertAdjacentHTML('beforeend', html); //insere o html no html
-  // }
-  fecharModal(); //fecha o modal
+  modal_sucess(); //chama a função de cadastro sucesso
+  page_refresh(); //atualiza a página
+  close_Modal(); //fecha o modal
 }
 
-async function deletePaleta(id) {
+async function delete_Paleta(id) {
   //deleta a paleta
   const response = await fetch(`${baseURL}/delete/${id}`, {
     //fetch é uma função nativa do js com base na roda delete no backend
@@ -164,7 +158,7 @@ async function deletePaleta(id) {
   const result = await response.json(); //retorna um json
 }
 
-function modal_deletar(id) {
+function modal_delete(id) {
   //modal para deletar a paleta
   Swal.fire({
     title: 'Atenção!',
@@ -177,7 +171,7 @@ function modal_deletar(id) {
   }).then((result) => {
     //se o usuário clicar em sim
     if (result.isConfirmed) {
-      deletePaleta(id);
+      delete_Paleta(id);
       Swal.fire({
         position: 'top-end',
         icon: 'success',
@@ -185,12 +179,12 @@ function modal_deletar(id) {
         showConfirmButton: false,
         timer: 3000,
       });
-      atualizar_pagina(); //atualiza a página
+      page_refresh(); //atualiza a página
     }
   });
 }
 
-function cadastrado_sucesso() {
+function modal_sucess() {
   //modal de cadastro/atualizar com sucesso
   Swal.fire({
     position: 'top-end',
@@ -201,7 +195,7 @@ function cadastrado_sucesso() {
   });
 }
 
-function atualizar_pagina() {
+function page_refresh() {
   //atualiza a página
   setTimeout(() => {
     document.location.reload(true);

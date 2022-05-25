@@ -82,7 +82,7 @@ html {
   }
 }
 
-.PaletaLista {
+.Paleta_Lista {
   /*lista de paletas*/
   display: grid; /*grid*/
   grid-template-columns: repeat(3, 1fr);
@@ -91,34 +91,47 @@ html {
 
 @media (max-width: 1220px) {
   /*quando a largura máxima for 1220px o grid-template-columns vai ser 1fr*/
-  .PaletaLista {
+  .Paleta_Lista {
     grid-template-columns: repeat(2, 1fr); /*grid*/
   }
 }
 
 @media (max-width: 840px) {
   /*quando a largura máxima for 840px o justify contenct vai ser unset (responsividade)*/
-  .PaletaLista {
+  .Paleta_Lista {
     grid-template-columns: 1fr; /*grid*/
   }
 }
 
-.PaletaCardItem,
-.PaletaListaItem {
+@media (max-width: 840px) {
+  /*quando a largura máxima for 840px o justify contenct vai ser unset (responsividade)*/
+  .Paleta_Lista {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    /*grid*/
+  }
+}
+
+.Paleta_Card_Item,
+.Paleta_Lista_Item {
   /*card de paleta*/
   background: #ffffff4d;
   border-radius: 10px;
+  /*borda redonda */
   padding: 10px;
+  /*padding */
   width: 315px;
+  /*largura */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  /*flex */
   -ms-flex-pack: distribute;
       justify-content: space-around;
   /*espaçamento entre os elementos*/
 }
 
-.PaletaCardItem {
+.Paleta_Card_Item {
   /*card de paleta*/
   height: 150px;
   width: 315px;
@@ -126,15 +139,15 @@ html {
 
 @media (max-width: 400px) {
   /*quando a largura máxima for 400px o height vai ser 100px*/
-  .PaletaCardItem,
-  .PaletaListaItem {
+  .Paleta_Card_Item,
+  .Paleta_Lista_Item {
     width: 210px;
     height: 180px;
   }
 }
 
-.PaletaCardItem > div,
-.PaletaListaItem > div {
+.Paleta_Card_Item > div,
+.Paleta_Lista_Item > div {
   /*card de paleta*/
   display: -webkit-box;
   display: -ms-flexbox;
@@ -142,50 +155,58 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  /*espaçamento entre os elementos*/
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  /*flex */
 }
 
-.PaletaCardItem__sabor,
-.PaletaListaItem__sabor {
+.Paleta_Card_Item__sabor,
+.Paleta_Lista_Item__sabor {
   /*card de paleta*/
   font-size: 1.5em;
   font-weight: 700;
+  /*negrito */
   line-height: 100%;
+  /*altura do texto */
 }
 
-.PaletaCardItem__descricao,
-.PaletaListaItem__descricao {
+.Paleta_Card_Item__descricao,
+.Paleta_Lista_Item__descricao {
   /*card de paleta*/
   font-size: 0.85em;
 }
 
-.PaletaCardItem__preco,
-.PaletaListaItem__preco {
+.Paleta_Card_Item__preco,
+.Paleta_Lista_Item__preco {
   /*card de paleta*/
   color: #9400d3;
 }
 
-.PaletaListaItem__foto {
+.Paleta_Lista_Item__foto {
   /*card de paleta*/
   height: 150px;
   margin-right: -60px;
+  /*margem */
 }
 
-.paleta-escolhida-espaco {
+.Chosed_Paleta_Space {
   /*espaço para a paleta escolhida*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  /*flex */
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  /*flex em colunas */
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  /*centraliza o texto */
   padding: 2rem;
 }
 
@@ -197,11 +218,13 @@ html {
   border-radius: 10px;
   border: 2px solid #9400d3;
   outline: none;
+  /*borda sem sombra */
 }
 
-.default-button {
+.Default_button {
   /*botão de pesquisa da paleta*/
   background-color: transparent;
+  /*cor de fundo transparente */
   border: 2px solid #9400d3;
   padding: 0.3rem;
   color: #9400d3;
@@ -209,18 +232,19 @@ html {
   border-radius: 10px;
   width: 315px;
   cursor: pointer;
+  /*cursor */
   margin-top: 0.5rem;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
 
-.default-button:hover {
+.Default_button:hover {
   /*hover do botão de pesquisa da paleta*/
   background-color: #9400d3;
   color: #ffffff;
 }
 
-.search-button {
+.Search_button {
   /*botão de pesquisa da paleta*/
   background-color: transparent;
   border: 2px solid #9400d3;
@@ -234,13 +258,13 @@ html {
   transition: all 0.4s ease-in-out;
 }
 
-.search-button:hover {
+.Search_button:hover {
   /*hover do botão de pesquisa da paleta*/
   background-color: #9400d3;
   color: #ffffff;
 }
 
-#paleta-escolhida-input-espaco {
+#Chosed_Paleta_Input_Space {
   /*espaço para a paleta escolhida*/
   display: -webkit-box;
   display: -ms-flexbox;
@@ -260,6 +284,7 @@ html {
   max-width: 1010px;
   margin: 0 auto 25px auto;
   position: relative;
+  /*posição relativa para o pai */
 }
 
 .row {
@@ -271,6 +296,7 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  /*espaçamento entre os elementos*/
   margin: 20px 0 35px 0;
 }
 
@@ -288,7 +314,7 @@ html {
   height: 45px;
 }
 
-.Logo__titulo {
+.Logo_titulo {
   /*título do logo*/
   position: absolute;
   left: 50px;
@@ -328,16 +354,21 @@ html {
   }
 }
 
-.modal-overlay {
+.Modal_overlay {
   /*overlay do modal*/
   background-color: #00000050;
   width: 100vw;
+  /*tamanho total da tela */
   height: 100vh;
+  /*altura total da tela */
   position: fixed;
+  /*posição fixa */
   top: 0;
   left: 0;
   z-index: 9999;
+  /*z-index para o modal */
   display: none;
+  /*oculta o modal */
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -345,6 +376,7 @@ html {
       -ms-flex-align: center;
           align-items: center;
   overflow-y: auto;
+  /*scroll */
 }
 
 .modal {
@@ -364,9 +396,10 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   overflow: hidden;
+  /*scroll */
 }
 
-.modal-header {
+.Modal_header {
   /*header do modal*/
   display: -webkit-box;
   display: -ms-flexbox;
@@ -378,10 +411,11 @@ html {
       -ms-flex-align: center;
           align-items: center;
   background-image: radial-gradient(farthest-corner at 40px 40px, #50c5ee 60%, #00d4ff80 100%);
+  /*gradiente */
   padding: 1rem;
 }
 
-.close-modal {
+.Close_modal {
   /*botão fechar do modal*/
   text-decoration: none;
   color: #000000;
@@ -390,21 +424,22 @@ html {
           transform: scale(0.7);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  /*transição */
   cursor: pointer;
 }
 
-.close-modal:hover {
+.Close_modal:hover {
   /*hover do botão fechar do modal*/
   -webkit-transform: scale(1);
           transform: scale(1);
 }
 
-.modal-body {
+.Modal_body {
   /*corpo do modal*/
   padding: 0.5rem 1rem;
 }
 
-.modal-body div {
+.Modal_body div {
   /*div do corpo do modal*/
   display: -webkit-box;
   display: -ms-flexbox;
@@ -421,7 +456,7 @@ html {
           justify-content: center;
 }
 
-.modal-body div input,
+.Modal_body div input,
 textarea {
   /*input e textarea do corpo do modal*/
   width: 100%;
@@ -433,7 +468,7 @@ textarea {
   border-radius: 0.3rem;
 }
 
-.modal-body div button {
+.Modal_body div button {
   /*botão do corpo do modal*/
   padding: 0.5rem;
   width: 30%;
@@ -447,13 +482,13 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-.modal-body div button:hover {
+.Modal_body div button:hover {
   /*hover do botão do corpo do modal*/
   background-color: #0097ce;
   color: #fff;
 }
 
-.button-modal-create {
+.Button_modal_create {
   /*botão do corpo do modal*/
   display: -webkit-box;
   display: -ms-flexbox;
@@ -489,33 +524,33 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-.acoes-editar {
+.Acoes_editar {
   /*acoes editar*/
   color: #02a6e7;
   border: solid 1.2px #02a6e7;
   background-color: transparent;
 }
 
-.acoes-editar:hover {
+.Acoes_editar:hover {
   /*hover do botão editar*/
   background-color: #02a6e7;
   color: #fff;
 }
 
-.acoes-apagar {
+.Acoes_apagar {
   /*acoes apagar*/
   color: #e70202;
   border: solid 1.2px #e70202;
   background-color: transparent;
 }
 
-.acoes-apagar:hover {
+.Acoes_apagar:hover {
   /*hover do botão apagar*/
   background-color: #e70202;
   color: #fff;
 }
 
-.list-all {
+.List_all {
   /*lista de todos os produtos*/
   display: none;
   text-align: center;

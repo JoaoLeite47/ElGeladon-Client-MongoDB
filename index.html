@@ -5,99 +5,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"> <!--biblioteca de icones do botstrap-->
     <link rel="shortcut icon" type="image/svg" href="./assets/images/logo.svg">
     <title>EL Geladon</title>
   </head>
   <body>
     <section class="Home">
-      <header class="Home__header Header">
+      <header class="Home_header Header"> <!--header da pagina-->
         <div class="row">
-          <div class="Header__logo Logo">
+          <div class="Header_logo Logo">
             <img
               src="./assets/images/logo.svg"
               width="70px"
               alt="Logo El Geladon"
               class="Logo__icone"
-            />
-            <span class="Logo__titulo"> El Geladon </span>
+            /> <!--Logo da pagina-->
+            <span class="Logo_titulo"> El Geladon </span> <!--titulo da pagina-->
           </div>
 
-          <div class="Header__opcoes Opcoes">
+          <div class="Options">
             <input
             type="text"
             id="idPaleta"
             placeholder="Digite o ID da paleta!"
-          />
-          <button class="search-button" onclick="findByIdPaletas()"><i class="bi bi-search"></i></button>
+          /> <!--input de pesquisa de paleta-->
+          <button class="Search_button" onclick="find_By_Id_Paletas()"><i class="bi bi-search"></i></button> <!--botao de pesquisa-->
           </div>
         </div>
       </header>
 
-      <section class="button-modal-create">
-        <a href="/" class="default-button list-all">Listar todas as paletas</a>
-        <button type="button" class="default-button" onclick="abrirModal()">
+      <section class="Button_modal_create">
+        <a href="/" class="Default_button List_all">Listar todas as paletas</a> <!--botao para listar todas as paletas-->
+        <button type="button" class="Default_button" onclick="show_Modal()"> <!--botão para criar nova paleta-->
           Cadastrar Paleta
         </button>
       </section>
 
-      <section class="modal-overlay" id="overlay">
-        <div class="modal">
-          <div class="modal-header">
-            <h2 id="title-header-modal">Cadastrar Paleta</h2>
-            <a onclick="fecharModal()" class="close-modal"><i class="bi bi-x-circle-fill"></i></a>
+      <section class="Modal_overlay" id="overlay"> <!--modal de cadastro de paleta-->
+        <div class="modal"> <!--div do modal-->
+          <div class="Modal_header"> <!--cabecalho do modal-->
+            <h2 id="Title_header_modal">Cadastrar Paleta</h2> <!--titulo do modal-->
+            <a onclick="close_Modal()" class="Close_modal"><i class="bi bi-x-circle-fill"></i></a> <!--botao de fechar modal-->
           </div>
 
-          <div class="modal-body">
+          <div class="Modal_body"> <!--corpo do modal-->
             <div>
-              <input type="hidden" id="id" />
+              <input type="hidden" id="id" /> <!--input hidden para receber o id da paleta-->
               <input
                 type="text"
                 name="sabor"
                 id="sabor"
                 placeholder="Sabor da Paleta"
-              />
+              /> <!--input para receber o sabor da paleta-->
               <input
                 type="number"
                 name="preco"
                 id="preco"
                 placeholder="Preço da Paleta"
-              />
+              /> <!--input para receber o preço da paleta-->
               <textarea
                 type="text"
                 name="descricao"
                 id="descricao"
                 placeholder="Descrição da Paleta"
                 rows="5"
-              ></textarea>
+              ></textarea> <!--textarea para receber a descrição da paleta-->
               <input
                 type="text"
                 name="foto"
                 id="foto"
                 placeholder="Link da Foto da Paleta"
-              />
-              <button id="button-form-modal" onclick="submitPaleta() ">
+              /> <!--input para receber o link da foto da paleta-->
+              <button id="Button_form_modal" onclick="submit_Paleta() ">
                 Cadastrar
-              </button>
+              </button> <!--botao para cadastrar a paleta-->
             </div>
           </div>
         </div>
       </section>
 
-      <div class="paleta-escolhida-espaco">
-        <div id="paleta-escolhida-input-espaco">
-        </div>
-        <div id="paletaEscolhida"></div>
+      <div class="Chosed_Paleta_Space">
+        <div id="Chosed_Paleta_Input_Space">
+        </div> <!--div para receber o input da paleta escolhida-->
+        <div id="Chosed_Paleta"></div> <!--div para receber a paleta escolhida-->
       </div>
 
       <div class="Home__container">
-        <div class="PaletaLista" id="paletaList"></div>
-        <!-- PaletaLista iterada no JS -->
+        <div class="Paleta_Lista" id="paletaList"></div> <!--div para receber as paletas-->
+        <!-- Paleta_Lista iterada no JS -->
       </div>
-      <div id="paletaEscolhida"></div>
+      <div id="Chosed_Paleta"></div> <!--div para receber a paleta escolhida-->
       </div>
     </section>
   </body>
   <script src="./assets/js/script.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--biblioteca de alertas-->
 </html>
