@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600;700&family=Anek+Tamil:wght@100;200;300;400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-* {
+* { /*padrão do style*/
   font-family: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
 }
 
 body,
-html {
+html { 
   /*corpo e html */
-  width: 100%;
-  min-height: 100vh;
-  overflow: auto;
-  background-color: #ffffff;
+  width: 100%; /*largura */
+  min-height: 100vh;  /*altura minima */
+  overflow: auto;  /*overflow */
+  background-color: #ffffff; /*cor de fundo */
 }
 .Home {
   /*home */
@@ -21,34 +21,34 @@ html {
     farthest-corner at 40px 40px,
     #50c5ee 60%,
     rgba(0, 212, 255, 0.5) 100%
-  );
+  ); /*imagem de fundo */
   min-height: calc(100vh - 60px); /*altura do header*/
-  margin: 15px;
-  padding: 15px;
-  border-radius: 20px;
-  color: #000000;
-  box-shadow: 0px 0px 15px #0000004d;
+  margin: 15px; /*margem */
+  padding: 15px; /*padding */
+  border-radius: 20px; /*borda redonda */
+  color: #000000; /*cor */
+  box-shadow: 0px 0px 15px #0000004d; /*sombra */
 }
 
-.Home > h2 {
+.Home > h2 { 
   /*título do home*/
-  display: flex;
-  justify-content: center;
-  color: #000000;
+  display: flex; /*flex */
+  justify-content: center; /*centraliza o texto */
+  color: #000000; /*cor */
 }
 
 .Home__container {
   /*container do home*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1.5rem;
+  display: flex; /*flex */
+  justify-content: center; /*centraliza o texto */
+  align-items: center; /*centraliza o texto */
+  padding: 1.5rem; /*padding */
 }
 
 @media (max-width: 350px) {
   /*quando a largura máxima for 350px o justify contenct vai ser unset (responsividade)*/
   .Home__container {
-    justify-content: unset;
+    justify-content: unset; 
   }
 }
 
@@ -86,7 +86,6 @@ html {
 
 .PaletaCardItem {
   /*card de paleta*/
-  margin: 20px 0;
   height: 150px;
   width: 315px;
 }
@@ -148,6 +147,8 @@ html {
   width: 315px;
   border: none;
   border-radius: 10px;
+  border: 2px solid #9400d3;
+  outline: none;
 }
 
 .default-button {
@@ -168,6 +169,25 @@ html {
   /*hover do botão de pesquisa da paleta*/
   background-color: #9400d3;
   color: #ffffff;
+}
+
+.search-button {
+    /*botão de pesquisa da paleta*/
+    background-color: transparent;
+    border: 2px solid #9400d3;
+    padding: 0.5rem;
+    color: #9400d3;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.4s ease-in-out;
+}
+
+.search-button:hover {
+    /*hover do botão de pesquisa da paleta*/
+    background-color: #9400d3;
+    color: #ffffff;
 }
 
 #paleta-escolhida-input-espaco {
@@ -218,33 +238,6 @@ html {
   top: -15px;
 }
 
-.Sacola {
-  /*sacola*/
-  position: relative;
-}
-
-.Sacola__icone {
-  /*ícone da sacola*/
-  cursor: pointer;
-}
-
-.Sacola__badge {
-  /*badge da sacola*/
-  background-color: red;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  vertical-align: middle;
-  position: absolute;
-  color: white;
-  font-size: 0.9em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  bottom: 0;
-  right: 0;
-}
 
 @media (max-width: 1220px) {
   /*quando a largura máxima for 1220px o header vai diminuir a width (responsividade)*/
@@ -317,7 +310,7 @@ html {
 .close-modal {
   text-decoration: none;
   color: #000000;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   transform: scale(0.7);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
@@ -411,4 +404,11 @@ textarea {
 .acoes-apagar:hover {
   background-color: #e70202;
   color: #fff;
+}
+
+.list-all {
+  display: none;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 1rem;
 }

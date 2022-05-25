@@ -37,12 +37,28 @@ findAllPaletas(); //chama a função findAllPaletas() quando a página for carre
 async function findByIdPaletas() {
   //busca por id
   const id = document.querySelector('#idPaleta').value; //pega o valor do input
-
+  if (id == '') {
+    //se o id for vazio retorna uma mensagem de error
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Por favor, preencha o campo de id!',
+    });
+  }
   const response = await fetch(`${baseURL}/paleta/${id}`); //fetch é uma função nativa do js com base na roda get by id no backend
   const paleta = await response.json(); //retorna um json
-
+  if (paleta.message != undefined) {
+    //se o id não existir no banco de dados retorna uma mensagem de erro
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Paleta não encontrada!',
+    });
+    return; //retorna nada para não continuar a execução
+  }
+  document.querySelector(".list-all").style.display = "block"; //mostra a lista de paletas
+  document.querySelector('.PaletaLista').style.display = 'none'; //esconde a lista de paletas
   const paletaEscolhidaDiv = document.querySelector('#paletaEscolhida'); //pega o elemento e intera como html
-
   paletaEscolhidaDiv.innerHTML = ` 
     <div class="PaletaCardItem" id="PaletaListaItem_${paleta.id}">
     <div>
@@ -51,8 +67,8 @@ async function findByIdPaletas() {
         <div class="PaletaCardItem__descricao">${paleta.descricao}</div>
 
         <div class="PaletaListaItem_acoes acoes">
-        <button class="acoes-editar btn" onclick="abrirModal('${paleta._id}')">Editar</button>
-        <button class="acoes-apagar btn" onclick="modal_deletar('${paleta._id}') >Apagar</button>
+        <button class="acoes-editar btn" onclick="abrirModal('${paleta._id}')" >Editar</button>
+        <button class="acoes-apagar btn" onclick="modal_deletar('${paleta._id}')" >Apagar</button>
       </div>
 
     </div>
@@ -63,17 +79,13 @@ async function findByIdPaletas() {
 
 async function abrirModal(id = '') {
   //abrir modal
-
   if (id != '') {
     //se o id for diferente de null
     document.querySelector('#title-header-modal').innerText =
       'Atualizar Paleta'; //altera o titulo do modal
-
     document.querySelector('#button-form-modal').innerText = 'Atualizar'; //altera o botão do modal
-
     const response = await fetch(`${baseURL}/paleta/${id}`); //fetch é uma função nativa do js com base na roda get by id no backend
     const paleta = await response.json(); //retorna um json
-
     document.querySelector('#sabor').value = paleta.sabor; //altera o valor do input para o valor do sabor da paleta
     document.querySelector('#preco').value = paleta.preco; //altera o valor do input para o valor do preco da paleta
     document.querySelector('#descricao').value = paleta.descricao; //altera o valor do input para o valor do descricao da paleta
@@ -113,7 +125,6 @@ async function submitPaleta(event) {
     foto,
   };
   const modoEdicaoAtivado = id != ''; //se o id for maior que 0 então é modo edição
-  console.log(modoEdicaoAtivado);
   const endpoint =
     baseURL + (modoEdicaoAtivado ? `/update/${id}` : `/create/${id}`); //se for modo edição, altera o endpoint para update, se não, altera para create
 
@@ -128,7 +139,7 @@ async function submitPaleta(event) {
   });
 
   const novaPaleta = await response.json(); //retorna um json
-
+  cadastrado_sucesso();
   document.location.reload(true); //atualiza a página
 
   // if (modoEdicaoAtivado) {
@@ -136,7 +147,6 @@ async function submitPaleta(event) {
   // } else {
   //   document.querySelector('#paletaList').insertAdjacentHTML('beforeend', html); //insere o html no html
   // }
-  cadastrado_sucesso();
   fecharModal(); //fecha o modal
 }
 
@@ -176,11 +186,12 @@ function modal_deletar(id) {
 }
 
 function cadastrado_sucesso() {
+  //modal de cadastro/atualizar com sucesso
   Swal.fire({
     position: 'top-end',
     icon: 'success',
     title: 'Salvo com sucesso!',
     showConfirmButton: false,
-    timer: 1500,
+    timer: 3000,
   });
 }
