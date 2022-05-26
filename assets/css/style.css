@@ -84,22 +84,20 @@ html {
 
 .Paleta_Lista {
   /*lista de paletas*/
-  display: grid; /*grid*/
-  grid-template-columns: repeat(3, 1fr);
+  display: -ms-grid;
+  display: grid;
+  /*grid*/
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   grid-gap: 25px 50px;
 }
 
 @media (max-width: 1220px) {
   /*quando a largura máxima for 1220px o grid-template-columns vai ser 1fr*/
   .Paleta_Lista {
-    grid-template-columns: repeat(2, 1fr); /*grid*/
-  }
-}
-
-@media (max-width: 840px) {
-  /*quando a largura máxima for 840px o justify contenct vai ser unset (responsividade)*/
-  .Paleta_Lista {
-    grid-template-columns: 1fr; /*grid*/
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    /*grid*/
   }
 }
 
@@ -329,6 +327,12 @@ html {
   top: -15px;
 }
 
+.Options {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 @media (max-width: 1220px) {
   /*quando a largura máxima for 1220px o header vai diminuir a width (responsividade)*/
   .Header {
@@ -341,6 +345,12 @@ html {
   .Header {
     max-width: 320px;
   }
+  .Options {
+    margin-top: 5rem;
+  }
+  .Search_button {
+    margin-left: 9rem;
+  }
 }
 
 @media (max-width: 400px) {
@@ -351,6 +361,9 @@ html {
   .Logo__titulo {
     /*título do logo*/
     font-size: 1.5em;
+  }
+  .Options {
+    width: 80%;
   }
 }
 

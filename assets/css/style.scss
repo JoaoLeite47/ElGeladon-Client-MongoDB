@@ -238,7 +238,9 @@ html {
   left: -20px;
   top: -15px;
 }
-
+.Options {
+  align-items: center;
+}
 @media (max-width: 1220px) {
   /*quando a largura máxima for 1220px o header vai diminuir a width (responsividade)*/
   .Header {
@@ -251,6 +253,12 @@ html {
   .Header {
     max-width: 320px;
   }
+  .Options {
+    margin-top: 5rem;
+  }
+  .Search_button {
+   margin-left: 9rem;
+  }
 } 
 
 @media (max-width: 400px) {
@@ -259,13 +267,13 @@ html {
     max-width: 250px;
   }
 
-  // .row {  /*sacola*/
-  //   column-gap: 20px;
-  // }
-
   .Logo__titulo {
     /*título do logo*/
     font-size: 1.5em;
+  }
+  .Options {
+    width: 80%;
+    
   }
 }
 
