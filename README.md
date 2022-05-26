@@ -1,6 +1,9 @@
 # El Geladon Client
 Client desenvolvida com fins acadêmicos e disponibilidade durante o módulo 3 do curso de Full Stack da Blue Edtech
 
+![Opera Instantâneo_2022-05-26_164715_127 0 0 1](https://user-images.githubusercontent.com/100146681/170579525-d5b739b6-caca-481f-8894-3572ce2a1eb7.png)
+
+
 
 ## Detalhes 
 
